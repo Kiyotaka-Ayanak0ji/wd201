@@ -3,15 +3,12 @@ const args = require("minimist")(process.argv.slice(2),{
   alias:{
     p: "port",
   },
-  default: {
-    p: 3000,
-  },
 });
 
-console.log(args.p);
+console.log(args);
 
 //Required port
-let reqPort = args[2];
+let reqPort = args.p;
 
 const http = require("http");
 const fs  = require("fs");
