@@ -1,2 +1,2 @@
 # wd201
-Pupil first server side node js projects
+**Pupil first server-side** Node.js projects
