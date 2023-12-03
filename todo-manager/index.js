@@ -1,8 +1,21 @@
 const express = require("express")
 const app = express()
 
-app.get("/", (request,response) => {
+app.get("/todos", (request,response) => {
     response.send("hello World");
+    console.log("Todo List");
+});
+
+app.post("/todos", (request,response) => {
+    console.log("Creating a todo",request.body);
+});
+
+app.post("/todos/:id/markAsCompleted" , (request,response) => {
+    console.log("We have to update a todo with ID" , request.params.id);
+});
+
+app.delete("/todos/:id" , (request,response) => {
+    console.log("Delete a todo by ID:", request.params.id);
 });
 
 app.listen(3000, () => {
