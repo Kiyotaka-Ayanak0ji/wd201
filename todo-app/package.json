@@ -1,0 +1,21 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "cd .. && husky install todo-app/.husky"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.18.2",
+    "husky": "^8.0.3",
+    "sequelize-cli": "^6.6.2"
+  },
+  "dependencies": {
+    "pg": "^8.11.3",
+    "sequelize": "^6.35.1"
+  }
+}
