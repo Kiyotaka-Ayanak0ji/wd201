@@ -25,3 +25,6 @@ app.post("/todos/:id/markAsCompleted" , (request,response) => {
 app.delete("/todos/:id" , (request,response) => {
     console.log("Delete a todo by ID:", request.params.id);
 });
+
+
+module.exports = {app,express};
