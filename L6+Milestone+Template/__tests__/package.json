@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.0"
+  }
+}

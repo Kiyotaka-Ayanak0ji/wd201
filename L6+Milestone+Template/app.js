@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 
 app.get("/todos", async (request,response) => {
     const todosItems = await Todo.gettodo();
-    response.json(todosItems);
+    response.send(todosItems);
 });
 
 app.post("/todos", async (request,response) => {
@@ -44,7 +44,7 @@ app.delete("/todos/:id" , async (request,response) => {
     if(todo != null){    
         try{    
             await Todo.deleteByID();
-            return response.json(true);
+            response.send(true);
         }
         catch(error){
             console.log(error);
@@ -52,7 +52,7 @@ app.delete("/todos/:id" , async (request,response) => {
         }
     }
     else{
-        return response.json(false);
+        response.send(false);
     }
 });
 
