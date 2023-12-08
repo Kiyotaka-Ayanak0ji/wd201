@@ -2,3 +2,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 cd L6+Milestone+Template && npm test
+npx lint-staged 
