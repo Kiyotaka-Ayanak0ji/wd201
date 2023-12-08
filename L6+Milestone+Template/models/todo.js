@@ -19,21 +19,21 @@ module.exports = (sequelize, DataTypes) => {
       return this.update({ completed: true });
     }
 
-    static gettodo = async() => {
+    static gettodo = async () => {
       const todos = await Todo.findAll();
       return todos;
-    }
+    };
 
     static deleteByID = async () => {
       const todo_deleted = await Todo.destroy({
         where: {
-          id: this.id
-        }
+          id: this.id,
+        },
       });
 
       await this.save();
       return todo_deleted;
-    }
+    };
   }
   Todo.init(
     {
@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Todo",
-    }
+    },
   );
   return Todo;
 };
