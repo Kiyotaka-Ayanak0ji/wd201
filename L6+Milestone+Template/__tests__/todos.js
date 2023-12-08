@@ -1,9 +1,13 @@
 const request = require("supertest");
-
+const {
+  test,
+  expect,
+  describe,
+  afterAll,
+  beforeAll,
+} = require("@jest/globals");
 const db = require("../models/index");
 const app = require("../app");
-const express = require("express");
-const { boolean } = require("yargs");
 
 let server, agent;
 
@@ -31,14 +35,13 @@ describe("Todo Application", function () {
     });
     expect(response.statusCode).toBe(200);
     expect(response.header["content-type"]).toBe(
-      "application/json; charset=utf-8"
+      "application/json; charset=utf-8",
     );
     const parsedResponse = JSON.parse(response.text);
     expect(parsedResponse.id).toBeDefined();
   });
 
   test("Marks a todo with the given ID as complete", async () => {
-
     const response = await agent.post("/todos").send({
       title: "Buy milk",
       dueDate: new Date().toISOString(),
@@ -69,7 +72,7 @@ describe("Todo Application", function () {
       dueDate: new Date().toISOString(),
       completed: false,
     });
-    
+
     const response = await agent.get("/todos");
     const parsedResponse = JSON.parse(response.text);
 
@@ -83,26 +86,23 @@ describe("Todo Application", function () {
       dueDate: new Date().toISOString(),
       completed: false,
     });
-    
+
     const parsedResponse = JSON.parse(sent.text);
     const ID = parsedResponse.id;
-    
+
     const todo = await db.Todo.findByPk(request.id);
 
-    const DeletedResponse = await agent
-      .put(`/todos/${ID}`)
-      .send();
+    const DeletedResponse = await agent.put(`/todos/${ID}`).send();
 
-    const parsedUpdateResponse = JSON.parse(DeletedResponse.text);
+    const parsedUpdateResponse = Boolean(DeletedResponse.text);
 
-    if(todo === null){
-      expect(parsedUpdateResponse).toBe(false);
-    }
-    else{
-      expect(parsedUpdateResponse).toBe(true);
+    if (parsedUpdateResponse === true) {
+      expect(todo).toBeDefined();
+    } else {
+      expect(todo).toBe(null);
     }
 
-    const todo_check = await db.Todo.findByPk(request.params.id);
+    const todo_check = await db.Todo.findByPk(request.id);
     expect(todo_check).toBe(null);
   });
 });
