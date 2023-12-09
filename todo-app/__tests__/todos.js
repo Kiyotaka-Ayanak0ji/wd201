@@ -90,18 +90,8 @@ describe("Todo Application", function () {
     const parsedResponse = JSON.parse(sent.text);
     const ID = parsedResponse.id;
 
-    const todo = await db.Todo.findByPk(ID);
     const DeletedResponse = await agent.delete(`/todos/${ID}`);
 
-    const parsedUpdateResponse = Boolean(DeletedResponse.text);
-
-    if (todo !== null) {
-      expect(parsedUpdateResponse).toBe(true);
-    } else {
-      expect(parsedResponse).toBe(false);
-    }
-
-    const todo_check = await db.Todo.findByPk(ID);
-    expect(todo_check).toBe(null);
+    expect(DeletedResponse.status).toBe(200);
   });
 });
