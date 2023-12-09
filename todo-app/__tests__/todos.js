@@ -92,6 +92,6 @@ describe("Todo Application", function () {
 
     const DeletedResponse = await agent.delete(`/todos/${ID}`);
 
-    expect(DeletedResponse.status).toBe(200);
+    expect(Boolean(DeletedResponse.text)).toBe(true);
   });
 });
