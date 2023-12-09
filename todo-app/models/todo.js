@@ -23,17 +23,6 @@ module.exports = (sequelize, DataTypes) => {
       const todos = await Todo.findAll();
       return todos;
     };
-
-    static deleteByID = async () => {
-      const todo_deleted = await Todo.destroy({
-        where: {
-          id: this.id,
-        },
-      });
-
-      await this.save();
-      return todo_deleted;
-    };
   }
   Todo.init(
     {
