@@ -49,7 +49,7 @@ app.delete("/todos/:id", async (request, response) => {
           id: request.params.id
         }
       });
-      await this.save();
+      await Todo.save();
       response.send(true);
     } 
     catch (error) {
