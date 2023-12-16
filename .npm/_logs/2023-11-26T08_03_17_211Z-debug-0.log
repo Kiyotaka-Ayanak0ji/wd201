@@ -1,0 +1,81 @@
+0 verbose cli [
+0 verbose cli   '/usr/bin/node',
+0 verbose cli   '/usr/bin/npm',
+0 verbose cli   'install',
+0 verbose cli   '--ignore-scripts',
+0 verbose cli   'types-registry@latest'
+0 verbose cli ]
+1 info using npm@8.5.1
+2 info using node@v12.22.9
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 1ms
+5 timing config:load:file:/usr/share/nodejs/npm/npmrc Completed in 5ms
+6 timing config:load:builtin Completed in 5ms
+7 timing config:load:cli Completed in 3ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:/root/.cache/typescript/5.2/.npmrc Completed in 0ms
+10 timing config:load:project Completed in 5ms
+11 timing config:load:file:/root/.npmrc Completed in 1ms
+12 timing config:load:user Completed in 1ms
+13 timing config:load:file:/etc/npmrc Completed in 0ms
+14 timing config:load:global Completed in 1ms
+15 timing config:load:validate Completed in 0ms
+16 timing config:load:credentials Completed in 0ms
+17 timing config:load:setEnvs Completed in 0ms
+18 timing config:load Completed in 17ms
+19 timing npm:load:configload Completed in 17ms
+20 timing npm:load:setTitle Completed in 1ms
+21 timing config:load:flatten Completed in 3ms
+22 timing npm:load:display Completed in 4ms
+23 verbose logfile /root/.npm/_logs/2023-11-26T08_03_17_211Z-debug-0.log
+24 timing npm:load:logFile Completed in 5ms
+25 timing npm:load:timers Completed in 1ms
+26 timing npm:load:configScope Completed in 0ms
+27 timing npm:load Completed in 30ms
+28 timing arborist:ctor Completed in 1ms
+29 silly logfile start cleaning logs, removing 1 files
+30 timing idealTree:init Completed in 27ms
+31 timing arborist:ctor Completed in 0ms
+32 http fetch GET 200 https://registry.npmjs.org/types-registry 233ms (cache miss)
+33 timing idealTree:userRequests Completed in 244ms
+34 silly idealTree buildDeps
+35 silly fetch manifest types-registry@0.1.672
+36 silly placeDep ROOT types-registry@0.1.672 REPLACE for:  want: 0.1.672
+37 timing idealTree:#root Completed in 13ms
+38 timing idealTree:node_modules/types-registry Completed in 0ms
+39 timing idealTree:buildDeps Completed in 17ms
+40 timing idealTree:fixDepFlags Completed in 0ms
+41 timing idealTree Completed in 291ms
+42 timing reify:loadTrees Completed in 293ms
+43 timing reify:diffTrees Completed in 3ms
+44 silly reify moves {}
+45 timing reify:retireShallow Completed in 1ms
+46 timing reify:createSparse Completed in 0ms
+47 timing reify:loadBundles Completed in 0ms
+48 silly audit bulk request {
+48 silly audit   '@types/eslint': [ '8.44.7' ],
+48 silly audit   '@types/estree': [ '1.0.5' ],
+48 silly audit   '@types/json-schema': [ '7.0.15' ],
+48 silly audit   '@types/minimist': [ '1.2.5' ],
+48 silly audit   '@types/node': [ '20.10.0' ],
+48 silly audit   'undici-types': [ '5.26.5' ],
+48 silly audit   'types-registry': [ '0.1.672' ]
+48 silly audit }
+49 timing reify:unpack Completed in 0ms
+50 timing reify:unretire Completed in 0ms
+51 timing build:queue Completed in 0ms
+52 timing build:deps Completed in 1ms
+53 timing build Completed in 1ms
+54 timing reify:build Completed in 1ms
+55 timing reify:trash Completed in 0ms
+56 timing reify:save Completed in 17ms
+57 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 291ms
+58 timing auditReport:getReport Completed in 293ms
+59 silly audit report {}
+60 timing auditReport:init Completed in 0ms
+61 timing reify:audit Completed in 296ms
+62 timing reify Completed in 608ms
+63 timing command:install Completed in 617ms
+64 verbose exit 0
+65 timing npm Completed in 917ms
+66 info ok

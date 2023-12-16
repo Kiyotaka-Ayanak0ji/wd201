@@ -1,0 +1,18 @@
+2023-11-25 22:44:42.459 [info] 
+
+
+
+
+2023-11-25 22:44:42.459 [info] Extension host agent started.
+2023-11-25 22:44:42.459 [info] Started initializing default profile extensions in extensions installation folder. file:///root/.vscode-server/extensions
+2023-11-25 22:44:42.474 [info] Completed initializing default profile extensions in extensions installation folder. file:///root/.vscode-server/extensions
+2023-11-25 22:44:42.630 [info] [127.0.0.1][fb2931e0][ManagementConnection] New connection established.
+2023-11-25 22:44:43.267 [info] [127.0.0.1][991f3bdd][ExtensionHostConnection] New connection established.
+2023-11-25 22:44:43.286 [info] [127.0.0.1][991f3bdd][ExtensionHostConnection] <472> Launched Extension Host Process.
+2023-11-25 22:47:36.449 [info] [127.0.0.1][0d88e1e9][ManagementConnection] New connection established.
+2023-11-25 22:47:37.372 [info] [127.0.0.1][de0f8be2][ExtensionHostConnection] New connection established.
+2023-11-25 22:47:37.378 [info] [127.0.0.1][de0f8be2][ExtensionHostConnection] <1570> Launched Extension Host Process.
+2023-11-25 22:47:42.105 [info] [127.0.0.1][fb2931e0][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2023-11-25 22:47:42.304 [info] [127.0.0.1][991f3bdd][ExtensionHostConnection] <472> Extension Host Process exited with code: 0, signal: null.
+2023-11-25 22:53:09.983 [info] [127.0.0.1][0d88e1e9][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+2023-11-25 22:53:10.212 [info] [127.0.0.1][de0f8be2][ExtensionHostConnection] <1570> Extension Host Process exited with code: 0, signal: null.
