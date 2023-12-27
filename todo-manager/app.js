@@ -14,7 +14,10 @@ app.get("/", async (request,response) => {
   const dueLater = await Todo.getDueLater();
   if(request.accepts("html")){
     response.render('index', {
-      Overdue,DueToday,dueLater
+      title: "Todo application",
+      Overdue,
+      DueToday,
+      dueLater
     });
   }
   else{
