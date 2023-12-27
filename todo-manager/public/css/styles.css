@@ -2,6 +2,6 @@ body{
     background-color:white;
     font-family: sans-serif;   
 }
-.Todo-List:hover .trash-icon{
+table:hover .trash-icon{
     display: block;
 }
