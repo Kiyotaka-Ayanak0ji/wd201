@@ -4,6 +4,7 @@ const { Todo } = require("./models");
 const bodyParser = require("body-parser");
 const path = require("path");
 app.use(bodyParser.json());
+app.use(express.urlencoded({extended: false}));
 
 //Set view Engine as EJS
 app.set("view engine","ejs");
