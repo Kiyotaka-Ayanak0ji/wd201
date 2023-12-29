@@ -44,7 +44,7 @@ app.post("/todos", async (request, response) => {
       dueDate: request.body.dueDate,
       completed: request.body.completed,
     });
-    return response.json(todo);
+    response.redirect("/");
   } catch (error) {
     console.log(error);
     return response.status(442).json(error);
