@@ -1,7 +1,7 @@
-body{
-    background-color:white;
-    font-family: sans-serif;   
+body {
+  background-color: white;
+  font-family: sans-serif;
 }
-table:hover .trash-icon{
-    display: block;
+table:hover .trash-icon {
+  display: block;
 }
