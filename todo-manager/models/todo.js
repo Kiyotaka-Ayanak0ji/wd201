@@ -49,13 +49,18 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     markAsCompleted() {
-      return this.update({ completed: true });
+      const status = this.completed
+      return this.update({completed: !status});
     }
 
-    static gettodo = async () => {
-      const todos = await Todo.findAll();
-      return todos;
-    };
+    static async remove(id) {
+      return this.destroy({
+        where: {
+          id,
+        }
+      });
+    }
+
   }
   Todo.init(
     {
