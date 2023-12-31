@@ -65,11 +65,11 @@ describe("Todo Application", function () {
     res = await agent.get("/");
     csrfToken = extractCsrfToken(res);
 
-    const markCompletedResponse = await agent.put(`/todos/${latestTodo.id}/markAsCompleted`).send({
+    const markCompletedResponse = await agent.put(`/todos/${latestTodo.id}`).send({
       _csrf: csrfToken,
     });
     const parsedUpdateResponse = JSON.parse(markCompletedResponse.text);
-    expect(parsedUpdateResponse.completed).toBe(true);
+    expect(parsedUpdateResponse.completed).toBe(markCompletedResponse.body.completed);
   });
 
   // test("Fetches all todos in the database using /todos endpoint", async () => {

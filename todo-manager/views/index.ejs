@@ -12,11 +12,12 @@
             var token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
 
             function updateTodo(id) {
-                fetch(`/todos/${id}/markAsCompleted`,{
+                fetch(`/todos/${id}`,{
                     method: "put",
                     headers: {"Content-type" : "application/json"},
                     body: JSON.stringify({
-                        "_csrf": token
+                        "_csrf": token,
+                        completed: Boolean,
                     })
                 })
                 .then((res) => {
@@ -54,17 +55,20 @@
                     <input type="hidden" name="_csrf" value = "<%= csrfToken %>">
                     <div class="flex gap-2 py-4">
                         <div class="flex-auto">
-                            <input type="text" name= "title" placeholder="What's next?" class="border border-grey-300 rounded text-gray-900 w-full p-2 text-sm" />
+                            <input type="text" name= "title" required placeholder="What's next?" class="border border-grey-300 rounded text-gray-900 w-full p-2 text-sm" />
                         </div>
                         <div class="flex-auto">
-                            <input type="date" name = "dueDate" class="border border-grey-300 rounded text-gray-900 w-full p-2 text-sm leading-4">
+                            <input type="date" name = "dueDate" required class="border border-grey-300 rounded text-gray-900 w-full p-2 text-sm leading-4">
                         </div>
                         <div class="flex-none">
                             <button type="submit" class="bg-green-600 text-white px-5 py-1.5 rounded font-medium mr-2 mb">Add</button>
                         </div>
                     </div>
                 </form>         
-                <%- include ('todos.ejs') %>
+                <%- include('todos.ejs', { title: "Overdue", data: Overdue, ID:"count-overdue" }) %>
+                <%- include('todos.ejs', { title: "Due Today", data: DueToday, ID:"count-due-today" }) %>
+                <%- include('todos.ejs', { title: "Due Later", data: dueLater, ID:"count-due-later" }) %>
+                <%- include('todos.ejs', { title: "Completed Items", data: Completed, ID:"count-completed" }) %>
             </div>
         </div>
     </body>

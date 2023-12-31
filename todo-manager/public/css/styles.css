@@ -1,7 +1,18 @@
 body {
-  background-color: white;
+  margin: 0px;
+  font: black;
   font-family: sans-serif;
+  background: white;
+
+  width: 100vw;
+  height: 400vw;
+
+  background-color: cyan;
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  height: 500vh;
 }
-table:hover .trash-icon {
+
+.Todo-Item:hover .trash-icon {
   display: block;
 }
