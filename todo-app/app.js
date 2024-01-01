@@ -2,9 +2,10 @@ const express = require("express");
 const app = express();
 var csrf = require("tiny-csrf");
 var cookieParser = require("cookie-parser");
-const { Todo } = require("./models");
+const { Todo , User} = require("./models");
 const bodyParser = require("body-parser");
 const path = require("path");
+const { request } = require("http");
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser("shhh! Some Secret String"));
@@ -12,6 +13,26 @@ app.use(csrf("this_should_be_32_character_long", ["POST", "PUT", "DELETE"]));
 
 //Set view Engine as EJS
 app.set("view engine", "ejs");
+
+app.post("/users", async (request,response) => {
+  console.log("Firstname",request.body.firstName);
+  try{
+      const user = await User.create({
+      firstName: request.body.firstName,
+      lastName: request.body.lastName,
+      email: request.body.email,
+      password: request.body.password
+    });
+    response.redirect("/");
+  }
+  catch(error){
+    console.log(error);
+  }
+});
+
+app.get("/signup" , (request,response) => {
+  response.render("signup", {title: "Sign Up", csrfToken: request.csrfToken()});
+});
 
 app.get("/", async (request, response) => {
   const Overdue = await Todo.getOverdues();
