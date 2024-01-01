@@ -17,8 +17,8 @@ module.exports = (sequelize, DataTypes) => {
 
     static getCompletedTodos() {
       return this.findAll({
-        where:{
-          completed: true
+        where: {
+          completed: true,
         },
         order: [["id", "ASC"]],
       });
@@ -56,18 +56,17 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
-    setCompletionStatus(stat){
-      return this.update({completed: stat});
+    setCompletionStatus(stat) {
+      return this.update({ completed: stat });
     }
 
     static async remove(id) {
       return this.destroy({
         where: {
           id,
-        }
+        },
       });
     }
-
   }
   Todo.init(
     {

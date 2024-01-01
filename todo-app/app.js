@@ -8,7 +8,7 @@ const path = require("path");
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser("shhh! Some Secret String"));
-app.use(csrf("this_should_be_32_character_long", ["POST","PUT","DELETE"]));
+app.use(csrf("this_should_be_32_character_long", ["POST", "PUT", "DELETE"]));
 
 //Set view Engine as EJS
 app.set("view engine", "ejs");
@@ -32,7 +32,7 @@ app.get("/", async (request, response) => {
       Overdue,
       DueToday,
       dueLater,
-      Completed
+      Completed,
     });
   }
 });
@@ -40,11 +40,10 @@ app.get("/", async (request, response) => {
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/todos", async (request, response) => {
-  try{
+  try {
     const todos = await Todo.findAll();
     return response.send(todos);
-  }
-  catch(error){
+  } catch (error) {
     console.error(error);
     return response.status(442).json(error);
   }
@@ -96,7 +95,7 @@ app.delete("/todos/:id", async (request, response) => {
 
   try {
     await Todo.remove(request.params.id);
-    return response.json({success: "true"});
+    return response.json({ success: "true" });
   } catch (error) {
     console.error(error);
     return response.status(442).json(error);

@@ -8,12 +8,12 @@ const {
 } = require("@jest/globals");
 const db = require("../models/index");
 const app = require("../app");
-var cheerio = require("cheerio")
+var cheerio = require("cheerio");
 
-function extractCsrfToken(res){
+function extractCsrfToken(res) {
   var $ = cheerio.load(res.text);
   return $("[name=_csrf]").val();
-};
+}
 
 let server, agent;
 
@@ -40,7 +40,7 @@ describe("Todo Application", function () {
       title: "Buy milk",
       dueDate: new Date().toISOString(),
       completed: false,
-      "_csrf": csrfToken,
+      _csrf: csrfToken,
     });
     expect(response.statusCode).toBe(302);
   });
@@ -52,24 +52,28 @@ describe("Todo Application", function () {
       title: "Buy milk",
       dueDate: new Date().toISOString(),
       completed: false,
-      "_csrf": csrfToken,
+      _csrf: csrfToken,
     });
 
     const groupedTodosResponse = await agent
-    .get("/")
-    .set("Accept","application/json");
+      .get("/")
+      .set("Accept", "application/json");
     const parsedGroupedResponse = JSON.parse(groupedTodosResponse.text);
     const dueTodayCount = parsedGroupedResponse.DueToday.length;
-    const latestTodo =  parsedGroupedResponse.DueToday[dueTodayCount-1];
+    const latestTodo = parsedGroupedResponse.DueToday[dueTodayCount - 1];
 
     res = await agent.get("/");
     csrfToken = extractCsrfToken(res);
 
-    const markCompletedResponse = await agent.put(`/todos/${latestTodo.id}`).send({
-      _csrf: csrfToken,
-    });
+    const markCompletedResponse = await agent
+      .put(`/todos/${latestTodo.id}`)
+      .send({
+        _csrf: csrfToken,
+      });
     const parsedUpdateResponse = JSON.parse(markCompletedResponse.text);
-    expect(parsedUpdateResponse.completed).toBe(markCompletedResponse.body.completed);
+    expect(parsedUpdateResponse.completed).toBe(
+      markCompletedResponse.body.completed,
+    );
   });
 
   // test("Fetches all todos in the database using /todos endpoint", async () => {

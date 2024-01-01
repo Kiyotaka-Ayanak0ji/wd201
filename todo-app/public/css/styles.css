@@ -16,3 +16,11 @@ body {
 .Todo-Item:hover .trash-icon {
   display: block;
 }
+
+#Add {
+  opacity: 0.6;
+}
+
+#Add:hover {
+  opacity: 1;
+}
