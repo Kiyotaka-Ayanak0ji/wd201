@@ -4,3 +4,8 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = 101034731+Kiyotaka-Ayanak0ji@users.noreply.github.com
+	name = Kiyotaka-Ayanak0ji
+[set-user]
+	email = aryanansik@gmail.com

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "husky-init": "^8.0.0"
+  }
+}

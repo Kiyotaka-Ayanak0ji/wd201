@@ -1,0 +1,172 @@
+0 verbose cli [
+0 verbose cli   '/usr/bin/node',
+0 verbose cli   '/usr/bin/npm',
+0 verbose cli   'install',
+0 verbose cli   '--ignore-scripts',
+0 verbose cli   'types-registry@latest'
+0 verbose cli ]
+1 info using npm@8.5.1
+2 info using node@v12.22.9
+3 timing npm:load:whichnode Completed in 0ms
+4 timing config:load:defaults Completed in 2ms
+5 timing config:load:file:/usr/share/nodejs/npm/npmrc Completed in 4ms
+6 timing config:load:builtin Completed in 5ms
+7 timing config:load:cli Completed in 2ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:/root/.cache/typescript/5.2/.npmrc Completed in 0ms
+10 timing config:load:project Completed in 5ms
+11 timing config:load:file:/root/.npmrc Completed in 1ms
+12 timing config:load:user Completed in 1ms
+13 timing config:load:file:/etc/npmrc Completed in 1ms
+14 timing config:load:global Completed in 1ms
+15 timing config:load:validate Completed in 0ms
+16 timing config:load:credentials Completed in 1ms
+17 timing config:load:setEnvs Completed in 1ms
+18 timing config:load Completed in 20ms
+19 timing npm:load:configload Completed in 20ms
+20 timing npm:load:setTitle Completed in 1ms
+21 timing config:load:flatten Completed in 2ms
+22 timing npm:load:display Completed in 4ms
+23 verbose logfile /root/.npm/_logs/2023-11-29T06_33_13_400Z-debug-0.log
+24 timing npm:load:logFile Completed in 4ms
+25 timing npm:load:timers Completed in 0ms
+26 timing npm:load:configScope Completed in 0ms
+27 timing npm:load Completed in 29ms
+28 timing arborist:ctor Completed in 1ms
+29 silly logfile start cleaning logs, removing 1 files
+30 timing idealTree:init Completed in 102ms
+31 timing arborist:ctor Completed in 0ms
+32 http fetch GET 200 https://registry.npmjs.org/types-registry 251ms (cache miss)
+33 timing idealTree:userRequests Completed in 279ms
+34 silly idealTree buildDeps
+35 silly fetch manifest types-registry@0.1.672
+36 silly placeDep ROOT types-registry@0.1.672 REPLACE for:  want: 0.1.672
+37 timing idealTree:#root Completed in 14ms
+38 timing idealTree:node_modules/types-registry Completed in 0ms
+39 timing idealTree:buildDeps Completed in 15ms
+40 timing idealTree:fixDepFlags Completed in 1ms
+41 timing idealTree Completed in 402ms
+42 timing reify:loadTrees Completed in 404ms
+43 timing reify:diffTrees Completed in 4ms
+44 silly reify moves {}
+45 timing reify:retireShallow Completed in 1ms
+46 timing reify:createSparse Completed in 0ms
+47 timing reify:loadBundles Completed in 0ms
+48 silly audit bulk request {
+48 silly audit   '@babel/helper-string-parser': [ '7.23.4' ],
+48 silly audit   '@babel/helper-validator-identifier': [ '7.22.20' ],
+48 silly audit   '@babel/parser': [ '7.23.4' ],
+48 silly audit   '@babel/types': [ '7.23.4' ],
+48 silly audit   '@types/argparse': [ '2.0.14' ],
+48 silly audit   '@types/babel__code-frame': [ '7.0.6' ],
+48 silly audit   '@types/babel__core': [ '7.20.5' ],
+48 silly audit   '@types/babel__generator': [ '7.6.7' ],
+48 silly audit   '@types/babel__helper-module-imports': [ '7.18.3' ],
+48 silly audit   '@types/babel__helper-plugin-utils': [ '7.10.3' ],
+48 silly audit   '@types/babel__helper-validator-identifier': [ '7.15.2' ],
+48 silly audit   '@types/babel__template': [ '7.4.4' ],
+48 silly audit   '@types/babel__traverse': [ '7.20.4' ],
+48 silly audit   '@types/babel-types': [ '7.0.15' ],
+48 silly audit   '@types/balanced-match': [ '3.0.2' ],
+48 silly audit   '@types/brace-expansion': [ '1.1.2' ],
+48 silly audit   '@types/braces': [ '3.0.4' ],
+48 silly audit   '@types/bser': [ '2.0.4' ],
+48 silly audit   '@types/buffer-from': [ '1.1.3' ],
+48 silly audit   '@types/caniuse-lite': [ '1.0.5' ],
+48 silly audit   '@types/co': [ '4.6.6' ],
+48 silly audit   '@types/color-convert': [ '2.0.3' ],
+48 silly audit   '@types/color-name': [ '1.1.3' ],
+48 silly audit   '@types/concat-map': [ '0.0.3' ],
+48 silly audit   '@types/convert-source-map': [ '2.0.3' ],
+48 silly audit   '@types/cross-spawn': [ '6.0.6' ],
+48 silly audit   '@types/debug': [ '4.1.12' ],
+48 silly audit   '@types/eslint': [ '8.44.7' ],
+48 silly audit   '@types/esprima': [ '4.0.6' ],
+48 silly audit   '@types/estree': [ '1.0.5' ],
+48 silly audit   '@types/exit': [ '0.1.33' ],
+48 silly audit   '@types/fb-watchman': [ '2.0.4' ],
+48 silly audit   '@types/fill-range': [ '7.0.3' ],
+48 silly audit   '@types/function-bind': [ '1.1.10' ],
+48 silly audit   '@types/gensync': [ '1.0.4' ],
+48 silly audit   '@types/graceful-fs': [ '4.1.9' ],
+48 silly audit   '@types/html-escaper': [ '3.0.2' ],
+48 silly audit   '@types/import-local': [ '3.1.2' ],
+48 silly audit   '@types/imurmurhash': [ '0.1.4' ],
+48 silly audit   '@types/inflight': [ '1.0.1' ],
+48 silly audit   '@types/inherits': [ '0.0.33' ],
+48 silly audit   '@types/is-core-module': [ '2.2.2' ],
+48 silly audit   '@types/is-number': [ '7.0.5' ],
+48 silly audit   '@types/isexe': [ '2.0.4' ],
+48 silly audit   '@types/istanbul-lib-coverage': [ '2.0.6' ],
+48 silly audit   '@types/istanbul-lib-instrument': [ '1.7.7' ],
+48 silly audit   '@types/istanbul-lib-report': [ '3.0.3' ],
+48 silly audit   '@types/istanbul-lib-source-maps': [ '4.0.4' ],
+48 silly audit   '@types/istanbul-reports': [ '3.0.4' ],
+48 silly audit   '@types/js-yaml': [ '4.0.9' ],
+48 silly audit   '@types/jsesc': [ '3.0.3' ],
+48 silly audit   '@types/json-schema': [ '7.0.15' ],
+48 silly audit   '@types/lint-staged': [ '13.2.2' ],
+48 silly audit   '@types/makeerror': [ '1.0.3' ],
+48 silly audit   '@types/merge-stream': [ '1.1.5' ],
+48 silly audit   '@types/micromatch': [ '4.0.6' ],
+48 silly audit   '@types/minimist': [ '1.2.5' ],
+48 silly audit   '@types/ms': [ '0.7.34' ],
+48 silly audit   '@types/natural-compare': [ '1.4.3' ],
+48 silly audit   '@types/node': [ '20.10.0' ],
+48 silly audit   '@types/node-int64': [ '0.4.32' ],
+48 silly audit   '@types/normalize-path': [ '3.0.2' ],
+48 silly audit   '@types/once': [ '1.4.4' ],
+48 silly audit   '@types/parse-json': [ '4.0.2' ],
+48 silly audit   '@types/path-is-absolute': [ '1.0.2' ],
+48 silly audit   '@types/path-parse': [ '1.0.22' ],
+48 silly audit   '@types/picomatch': [ '2.3.3' ],
+48 silly audit   '@types/prompts': [ '2.4.9' ],
+48 silly audit   '@types/prop-types': [ '15.7.11' ],
+48 silly audit   '@types/react': [ '18.2.39' ],
+48 silly audit   '@types/react-is': [ '18.2.4' ],
+48 silly audit   '@types/require-directory': [ '2.1.6' ],
+48 silly audit   '@types/resolve': [ '1.20.6' ],
+48 silly audit   '@types/scheduler': [ '0.16.8' ],
+48 silly audit   '@types/semver': [ '7.5.6' ],
+48 silly audit   '@types/shebang-command': [ '1.2.2' ],
+48 silly audit   '@types/signal-exit': [ '3.0.4' ],
+48 silly audit   '@types/sinonjs__fake-timers': [ '8.1.5' ],
+48 silly audit   '@types/source-map-support': [ '0.5.10' ],
+48 silly audit   '@types/sprintf-js': [ '1.1.4' ],
+48 silly audit   '@types/stack-utils': [ '2.0.3' ],
+48 silly audit   '@types/strip-final-newline': [ '3.0.2' ],
+48 silly audit   '@types/supports-color': [ '8.1.3' ],
+48 silly audit   '@types/test-exclude': [ '6.0.2' ],
+48 silly audit   '@types/tmpl': [ '1.0.2' ],
+48 silly audit   '@types/to-regex-range': [ '5.0.3' ],
+48 silly audit   '@types/type-detect': [ '4.0.3' ],
+48 silly audit   '@types/which': [ '3.0.3' ],
+48 silly audit   '@types/write-file-atomic': [ '4.0.3' ],
+48 silly audit   '@types/yallist': [ '4.0.4' ],
+48 silly audit   '@types/yargs': [ '17.0.32' ],
+48 silly audit   '@types/yargs-parser': [ '21.0.3' ],
+48 silly audit   csstype: [ '3.1.2' ],
+48 silly audit   kleur: [ '3.0.3' ],
+48 silly audit   'source-map': [ '0.6.1' ],
+48 silly audit   'to-fast-properties': [ '2.0.0' ],
+48 silly audit   'undici-types': [ '5.26.5' ],
+48 silly audit   'types-registry': [ '0.1.672' ]
+48 silly audit }
+49 timing reify:unpack Completed in 0ms
+50 timing reify:unretire Completed in 0ms
+51 timing build:queue Completed in 0ms
+52 timing build:deps Completed in 0ms
+53 timing build Completed in 0ms
+54 timing reify:build Completed in 1ms
+55 timing reify:trash Completed in 0ms
+56 timing reify:save Completed in 47ms
+57 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 522ms
+58 timing auditReport:getReport Completed in 524ms
+59 silly audit report {}
+60 timing auditReport:init Completed in 0ms
+61 timing reify:audit Completed in 525ms
+62 timing reify Completed in 951ms
+63 timing command:install Completed in 958ms
+64 verbose exit 0
+65 timing npm Completed in 1236ms
+66 info ok

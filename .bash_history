@@ -1,364 +1,500 @@
-/mnt/c/Program Files/nodejs/node.exe "/root/wd201/hello-world/index.js"
-npm start -- --name Jane --age 32
-npm install minimist
-minimist --init
-minimist -v
-minimist 
-/mnt/c/Program Files/nodejs/node.exe "/root/wd201/hello-world/tempCodeRunnerFile.js"
-npm start -- --name Jane --age 32
-npm start -- --n Jane --age 32
-npm start -- --n Jane --age 32 --greeting
-cd wd201
-mkdir http-server
-cd http-server
-cd ..
-ls
-cd http-server
-code .
-cd ..
-code .
-cd wd201
-git status
-mkdir http-server
-cd http-server
-ls
-code .
-git status
-cd ..
-code .
-cd hello-world
-code .
-git status
-git commit
-git revert
-git revert --abort
-git status
-cd ..
-cd http-server
-sudo apt-get update && sudo apt-get install wget ca-certificates
-apk update && apk add libstdc++
-apk update && apk add bash
-wslconfig /setdefault Ubuntu
-wslconfig /l
-echo $PATH
-echo $path
-echo $PATH
-pwd
-clea
-cls
-clear
-sa
-/mnt/c/Program Files/nodejs/node.exe "/root/wd201/hello-world/index.js"
-ls
-cd wd201
-ls
-git status
-git add hello-world
-git add http-server
-git status
-git commit -m Initial Commit
-git comit -m Initial Commit
-git commit -m Initial Commit
-git comit
-git commit
-git commit -m "Initial Commit"
+git branch -D master
+git branch
 git push -u origin main
-git login
-git auth
-git -h
-git --h
-git --help
-git config -l
-git config login
-git config
-git config --global
-git 
-clear
-git auth status
-git remote add origin https://github.com/Kiyotaka-Ayanak0ji/wd201
-git remote -v
+git init
 git status
-git add hello-world
-git add http-server
-git commit -m "Initial Commit"
-ls
-git add http-server
-git add hello-world
+cd todo-app
 git status
-git add "hello-world"
-git status
-git add http-server
-git status
-where http-server
-what http-server
-clear
-git status
-git add hello-world
-git add http-server
-git status
-git add
-git add *
-git status
-ls
-rm -rf ~/.vscode-server
-logout
-cd ..
-mkdir http-server
-ls
-cd http-server
-code .
-npm init
-npm config set init-author-name "Ansik" --location=global
-npm config ls
-npm install eslint
-eslint init
-eslint --init
-eslint index.js
-node index.js
-npm start
-npm start
-node index.js
-npm start
-npm start
-cd ..
-code .
-ls
-cd ..
-ls
-cd prev
-git clone https://github.com/Kiyotaka-Ayanak0ji/wd101
-cd http-server
-npm start
-npm start
-code .
-npm start
-npm start
-npm start
-npm start
-node index.js
-node index.js -- --5000
-node index.js -- 5000
-node index.js -- --5000
-node index.js -- --5000
-node index.js -- 5000
-cd ..
-code .
-npm install --global minimist
-npm intall --global eslint
-npm install --global eslint
-cd hello-world
-eslint --init
-eslint -v
-eslint-cofig-xo -v
-eslint-xo -v
-xo -v
-eslint xo -v
-eslint xo
-eslint index.js
-eslint --init
-cd wd201
-git status
-git add hello-world
-git add http-server
-git status
-git commit -m "Initial Commit"
+git push
+git push origin main
 git push -u origin main
-git rebase
-git rebase main
-git rebase origin
-git pull rebase
 git pull
-git pull --help
-git pull -r
-git pull -r main
-git pull -r hello-world
-git checkout mu-branch
-git checkout hello-world
-git fetch origin main
-git checkout hello-world
-git rebase origin/main
-git fetch origin main
-git checkout http-server
-git rebase origin/main
-git rebase origin
-git rebase origin main
-git rebase origin/main
+git pull -u main
+git add remote origin = "https://github.com/Kiyotaka-Ayanak0ji/wd201"
+git remote add origin = "https://github.com/Kiyotaka-Ayanak0ji/wd201"
+git remote add origin main = "https://github.com/Kiyotaka-Ayanak0ji/wd201"
+git remote add origin "https://github.com/Kiyotaka-Ayanak0ji/wd201"
+git push
+git branch
+git push --set-upstream origin master
+git branch
 git status
-git push origin hello-world
-git push --force-with-lease origin hello-world
-git rebase origin hello-world
-git rebase origin/main hello-world
-git rebase origin/main "Initial Commit"
-git rebase origin/main hello-world/"Initial Commit"
-git rebase origin hello-world
-git rebase remote origin hello-world
-git rebase main hello-world
+git checkout main
+git merge master origin
+git merge master main
+git merge master 
+git checkout main
+git branch
+git init
+git add .
+git commit -a
+cd todo-app
+npm start
+npm install
+npm install
+npm install husky --save-dev
+npx husky prepare
+npx husky add todo-app
+npx husky install
+npx husky install
+git init
+git add .
+git commit -a
+git push 
+npx husky install
+npx husky add pre-commit
+npx husky add .husky/pre-commit
+git commit -a
+git add .
+git commit -a
+git push
+git status
+git add .husky
+git status
+git commit -a
+npm start
+git pull
+git pull --rebase
+git branch --set-upstream-to=origin/main
+git branch
+git brach main
+git branch main
+git branch -D master
+git branch checkout main
+git branch -D master
+git branch
+git checkout main
+git branch -D master
+git branch -D checkout
+git pull
+
 git pull 
-git pull remote hello-world
-git pull hello-world
-cd hello-world
-git status
-git add hello-world
-cd ..
-git add hello-world
-git add http-server
+git branch -D checkout
+git branch
+git checkout main
 git status
 git push -u origin main
-git status
-git add http-server
-git status
-ls
-cd http-server
-git push -u origin main
-git fetch main
-git fetch origin
-git fetch remote main
-git fetch origin main
-git checkout http-server
-cd ..
-git fetch origin main
-git checkout http-server
-git rebase origin/main
-git push origin main
-git push -u origin main
-git push 
-git push http-server
-cd http-server
-git init
-git status
-git add 
-git add  .
-git status
-ls
-ls
-git add .
-git status
-git commit -m "Initial Commit"
-git push -u origin main
-git fetch origin main
-git fetch 
-git fetch main
-git status
-git push
-git remote add origin
 git remote add origin https://github.com/Kiyotaka-Ayanak0ji/wd201
-git remote -v
 git push -u origin main
-git fetch origin main
-git push -u origin main
-git checkout http-server
-cd ..
-git checkout http-server
-cd http-server
-git checkout .
-git rebase origin main
-git rebase .
-git rebase main
-git rebase remote origin main
-git rebase remote origin 
-git rebase http-server origin 
-git rebase origin/main
-git push -u origin main
-git status
-git fetch origin main
-git rebase origin/main
-git checkout .
-git rebase origin/main
+git pull
+git pull --rebase
+git pull main origin/main
+git pull main origin
+git pull main main
+git fetch 
+git pull --rebase
+git pull --rebase
+git pull --rebase origin
+git pull --rebase origin
 git pull .
-git push -u origin main
-git push
-git push .
-git push origin
-git push origin main
+git pull 
+git branch --set-upstream-to=main/main
+git pull
+git pull --rebase
+git branch
+git merge --rebase
+git merge 
+git merge --rebase
+git merge .
 git pull .
-git rebase origin
-git rebase origin/main
-git commit -m "Initial Commit"
+git pull --rebase
+git pull 
+git push -u origin main
+cd todo-app
+cd .husky
+git init
+git add .
+git commit -a
 git push 
- git push --set-upstream origin master
+git ..
+cd ..
+npm install
+cd todo-app
+npm pkg set scripts.prepare="cd .. && husky install todo-cli/.husky"
+git checkout main 
+git remote add origin https://github.com/Kiyotaka-Ayanak0ji/wd201
+git push 
+git push .
+git pull
+git push
+cd ..
+git push
+git pull
+git push -u origin main
+cd todo-app
+git push -u origin main
+git pull
+git branch
+git chekout main
+git checkout main
 git status
-clear
+git add .
+git commit -m "DATABASE_URL"
+git push -u origin main
+git pull 
+git pull remote main
+cd ..
+git push -u origin main
+git status
+git add .
+git commit -m "DATABASE_URL"
+git push -u origin main
+git diff
+git st
+view diff
+rm diff
+ls
+git commit -a
+git push -u origin main
+cd todo-app
+git commit -a
+git push .
+git add .
+git commit -m "Views"
+git push .
+git status
+cd views
+git status
+cd ..
 cd ..
 git status
-git add hello-world
-git status
-git commit git restore --staged .
-git commit git restore --staged
-git commit git restore --staged -a
-git restore --staged --all
-git restore --staged --s
-git restore --staged -q
-git restore --staged .gitignore
-git restore --staged index.js
-clear
-git status
-cd http-server
-git status
-ls
+git add .
 git add .
 git status
+git commit -m "Views"
+git push -u origin main
+cd todo-manager
+npm start
+cd ..
+git add .
+cd todo-manager
 git init
+git add .
+npx prepare husky
+npm prepare husky
+husky init
+npm install
+husky init
+npx husky init
+npx husky add todo-manager/pre-commit
+npx husky add .husky/pre-commit
+npx husky 
+npm pkg set scripts.prepare="cd .. && husky install todo-manager/.husky"
+npx husky add 
+npm pkg set scripts.prepare="cd .. && husky install todo-manager/.husky"
+npx husky add .husky/pre-commit
+npm pkg set scripts.prepare="cd .. && husky install todo-manager/.husky"
+git add .
+git commit -m "Manager"
+git add .
+git commit -m "Manager"
+git add .
+git commit -m "Manager"
+git commit -m "Manager"
+git branch
+git branch main
+git checkout 
+git branch -D master
+git branch 
+git checkout main
 git status
-git commit -m ""
-git commit -m "Del"
-git push
-git status
-git fetch main
-git fetch origin main
-git fetch branch main
-git fetch origin main
-git checkout .
-cd ..
-git fetch origin main
-git checkout http-server
-ls
-git checkout http-server
-git checkout http-server/
-git checkout http-server/index.js
-git status
-git add http-server
-git submodule add <url> wd201/http-server
-git submodule add ,url.wd201/http-server
-git submodule add <url> wd201/http-server
-git submodule add <url> http-server
-ls
-git submodule add <url> wd201/http-server
-git status
-git commit -m "Initial"
-git push
-git fetch origin
-git fetch origin main
-git checkout http-server
-git rebase origin/main
-git push
-cd hello-world
-cd ..
-cd http-server
-ls
-git status
+git remote add origin "https://github.com/Kiyotaka-Ayanak0ji/wd201"
 git add .
 git status
-git push
-git fetch remote
-git fetch origin
-git push
-git push
-git fetch origin main
-git checkout .
-git rebase origin/main
+cd ..
 git status
-git pull
-git pull rebase -true
-git pull rebase true
-git pull rebase
-git pull
-git config pull.rebase false
+git add .
+git commit -m "Manager"
+git push -u origin main
+cd todo-manager
 git status
-git pull
-git status
-git push
-git status
-ls
+git commit -a
 git init
+git add .
+git commit -m "Manager"
+git status
+cd ..
+git status
+git commit -m "Manager"
+git add .
+git commit -m "Manager"
+cd todo-manager
+npm start
+cd ~
+ls
+cd todo-manager
+git checkout main
+git add ,
+git add .
+git commit -a
+git commit -a
+git commit -a
+npm init @eslint/config
+git add .
+git commit -a
+git add .
+git commit -a
+git push .
+git push -u origin main
+cd ..
+git commit -a
+git push -u origin main
+cd todo-manager
+npm start
+npm start
+npm start
+npm start
+git add .
+git commit -a
+cd todo-manager
+npm start
+git commit -a
+git commit -a
+git commit -a
+npm install -g npm@10.2.5
+git commit -a
+git commit -a
+git commit -a
+git commit -a
+git status
+cd ..
+git commit -a
+git push -u origin main
+cd todo-manager
+npm start
+git commit -a
+git push .
+npm start
+cd ..
+git push .
+git push -u origin main
+git commit -a
+git push -u origin main
+cd todo-manager
+npm start
+cd todo-manager
+git add .
+git commit -a
+cd ..
+git commit -a
+git push -u origin main
+cd todo-manager
+npm start
+npm start
+cd todo-manager
+npm start
+cd todo-manager
+npm start
+npm start
+npm start
+git commit -a
+cd ..
+git commit -a
+git push -u origin main
+git commit -a
+git push -u origin main
+git commit -a
+cd todo-manager
+git commit -a
+cd ..
+git push -u origin main
+git commit -a
+git push -u origin main
+cd todo-manager
+git push -u origin main
+git push .
+cd ..
+git push -u origin main
+git commit -a
+git push -u origin main
+cd todo-manager
+npm start
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+cd todo-manager
+npm test
+git add -a
+git add .
+got commit -a
+git commit -a
+git commit -a
+cd ..
+git add .
+git commit -a
+git push -u origin main
+git add .
+cd todo-manager
+git add .
+git commit -a
+npx lint-staged
+npx lint
+npx lint-staged
+git stage
+git add .
 git status
 git add .
+git commit -a
+git add.
+git add .
+git commit -a
+git commit -a
+git add .
+git commit -a
+git commit -a
+git add .
+git add .
+git commit -a
+git commit -a
+git push -u origin main
+cd ..
+git add .
+git commit -a
+git push -u origin main
+cd todo-manager
+git commit -a
+git push -u origin main
+cd ..
+git push -u origin main
+git commit -a
+git push -u origin main
+cd todo-manager
+npm test
+npm test
+npm test
+npm test
+git add -all
+git add --all
+npx lint staged
+npx lint-staged
+git add --all
+npx lint-staged
+git add --all
+npx lint-staged
+git commit -a
+git commit -a
+git add --all
+git commit -a
+git commit -a
+npx lint-staged
+cd ..
+git add --all
+npx lint-staged
+git commit -a
+git push -u origin main
+cd todo-manager
+npm start
+npm start
+git add .
+git commit -a
+cd ..
+git add .
+npx lint staged
+npx lint-staged
+git add .
+git commit -a
+git push -u origin main
+cd todo-manager
+git status
+cd views
+git status
+cd ..
+cd ..
+git status
+cd todo-manager
+npm install csurf cookie-parser
+npm start
+npm test
+npm install cheerio --save-dev
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+npm test
+git add .
+npx lint-staged
+npx lint-staged --fix
+npx lint-staged
+git commit -a
+cd ..
+git add .
+git commit -a
+git push -u origin main
+cd todo-manager
+npm install tiny-csrf
+npm remove csurf
+npm test
+npm test
+npm test
+npm start
+cd todo-manager
+npm start
+cd todo-manager
+npm start
+npm test
+npm test
+npm test
+npm start
+npm start
+npm start
+npm test
+npm test
+npm start
+git add .
+git commit -a
+cd ..
+git add .
+npx lint-staged
+git commit -a
+git push -u origin main
+git add .
+git commit -a
+cd todo-manager
+git add .
+git commit -a
+cd ..
+git push -u origin main
+cd todo-manager
+npm start
+cd todo-manager
+npm start
+cd ..
+cd wd201
+cd ~
+cd wd201
+cd todo-app
+git add .
+npx lint-staged
+git commit -a
+cd ..
+git add .
+npx lint-staged
+cd todo-app
+npm install
+git add .
+npx lint-staged
+git status
+git commit -a
+cd ..
+git commit -a
+git add .
+git status
+git commit -a
+git push -u origin main
+cd todo-app
+git add .
+git commit -a
