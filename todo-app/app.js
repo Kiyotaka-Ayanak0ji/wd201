@@ -6,24 +6,78 @@ const { Todo , User} = require("./models");
 const bodyParser = require("body-parser");
 const path = require("path");
 const { request } = require("http");
+
+const passport = require('passport');
+const connectEnsureLogin = require('connect-ensure-login');
+const session = require('express-session');
+const LocalStrategy = require('passport-local');
+const { error } = require("console");
+
+//Set view Engine as EJS
+app.set("view engine", "ejs");
+
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser("shhh! Some Secret String"));
 app.use(csrf("this_should_be_32_character_long", ["POST", "PUT", "DELETE"]));
 
-//Set view Engine as EJS
-app.set("view engine", "ejs");
+app.use(session({
+  secret: "my-super-secret-key-21728172615261562",
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  },
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy({
+  usernameField: 'email',
+  passwordField: 'password'
+},(username,password,done)=>{
+  User.findOne({
+    where: {
+      email: username,
+      password: password
+    }
+  }).then((user)=>{
+    return done(null,user)
+  }).catch((error)=>{
+    return (error)
+  })
+}));
+
+passport.serializeUser((user,done)=>{
+  console.log("Serializing user in session", user.id);
+  done(null,user.id);
+});
+
+passport.deserializeUser((id,done)=>{
+  User.findByPk(id).then(user => {
+    done(null,user);
+  }).catch(error => {
+    done(error,null)
+  })
+});
 
 app.post("/users", async (request,response) => {
   console.log("Firstname",request.body.firstName);
   try{
       const user = await User.create({
-      firstName: request.body.firstName,
-      lastName: request.body.lastName,
-      email: request.body.email,
-      password: request.body.password
-    });
-    response.redirect("/");
+        firstName: request.body.firstName,
+        lastName: request.body.lastName,
+        email: request.body.email,
+        password: request.body.password
+      });
+      request.login(user,(err)=>{
+        if(err){
+          console.error(err);
+        }
+        response.redirect("/todos");
+      })
   }
   catch(error){
     console.log(error);
@@ -35,12 +89,19 @@ app.get("/signup" , (request,response) => {
 });
 
 app.get("/", async (request, response) => {
+  response.render("index", {
+    title: "Todo Application",
+    csrfToken: request.csrfToken(),
+  });
+});
+
+app.get("/todos",connectEnsureLogin.ensureLoggedIn() ,async (request, response) => {
   const Overdue = await Todo.getOverdues();
   const DueToday = await Todo.getDuetoday();
   const dueLater = await Todo.getDueLater();
   const Completed = await Todo.getCompletedTodos();
   if (request.accepts("html")) {
-    response.render("index", {
+    response.render("todos", {
       title: "Todo Application",
       Overdue,
       DueToday,
@@ -58,7 +119,6 @@ app.get("/", async (request, response) => {
   }
 });
 
-app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/todos", async (request, response) => {
   try {
@@ -70,7 +130,7 @@ app.get("/todos", async (request, response) => {
   }
 });
 
-app.post("/todos", async (request, response) => {
+app.post("/todos",async (request, response) => {
   console.log("Creating a todo", request.body);
   //Todo
   try {
@@ -79,7 +139,7 @@ app.post("/todos", async (request, response) => {
       dueDate: request.body.dueDate,
       completed: request.body.completed,
     });
-    response.redirect("/");
+    response.redirect("/todos");
   } catch (error) {
     console.log(error);
     return response.status(442).json(error);
