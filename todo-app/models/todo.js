@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Todo.belongsTo(models.User,{
-        foreignKey: "userId"
+      Todo.belongsTo(models.User, {
+        foreignKey: "userId",
       });
     }
 
