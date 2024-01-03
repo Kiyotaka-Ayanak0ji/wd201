@@ -1,4 +1,5 @@
 "use strict";
+const { use } = require("passport");
 const { Model, Op } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Todo extends Model {
@@ -13,20 +14,21 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
-    static addTodo({ title, dueDate }) {
-      return this.create({ title: title, dueDate: dueDate, completed: false });
+    static addTodo({ title, dueDate , userID}) {
+      return this.create({ title: title, dueDate: dueDate, completed: false ,userID});
     }
 
-    static getCompletedTodos() {
+    static getCompletedTodos(userID) {
       return this.findAll({
         where: {
           completed: true,
+          userID
         },
         order: [["id", "ASC"]],
       });
     }
 
-    static getOverdues() {
+    static getOverdues(userID) {
       return this.findAll({
         where: {
           dueDate: {
@@ -34,19 +36,23 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
         order: [["id", "ASC"]],
+        completed: false,
+        userID: userID
       });
     }
 
-    static getDuetoday() {
+    static getDuetoday(userID) {
       return this.findAll({
         where: {
           dueDate: new Date().toISOString().split("T")[0],
         },
         order: [["id", "ASC"]],
+        completed: false,
+        userID: userID
       });
     }
 
-    static getDueLater() {
+    static getDueLater(userID) {
       let tom = new Date().setDate(new Date().getDate() + 1);
       return this.findAll({
         where: {
@@ -55,6 +61,8 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
         order: [["id", "ASC"]],
+        completed: false,
+        userID: userID
       });
     }
 
@@ -62,10 +70,11 @@ module.exports = (sequelize, DataTypes) => {
       return this.update({ completed: stat });
     }
 
-    static async remove(id) {
+    static async remove(id,userID) {
       return this.destroy({
         where: {
           id,
+          userID
         },
       });
     }

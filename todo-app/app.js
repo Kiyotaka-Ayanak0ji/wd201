@@ -143,7 +143,8 @@ app.get(
   connectEnsureLogin.ensureLoggedIn(),
   async (request, response) => {
   try{
-      const [Overdue,DueToday,dueLater,Completed] = await Promise.all([Todo.getOverdues(),Todo.getDuetoday(),Todo.getDueLater(),Todo.getCompletedTodos()])
+      const uId = request.user.id;
+      const [Overdue,DueToday,dueLater,Completed] = await Promise.all([Todo.getOverdues(uId),Todo.getDuetoday(uId),Todo.getDueLater(uId),Todo.getCompletedTodos(uId)])
       if (request.accepts("html")) {
         response.render("todos", {
           title: "Todo Application",
@@ -179,14 +180,14 @@ app.get("/todos",connectEnsureLogin.ensureLoggedIn(),async (request, response) =
 
 app.post("/todos",connectEnsureLogin.ensureLoggedIn(),async (request, response) => {
   console.log("Creating a todo", request.body);
-  const loggedInUser = request.params.id;
+  console.log(request.user);
   //Todo
   try {
     const todo = await Todo.addTodo({
       title: request.body.title,
       dueDate: request.body.dueDate,
       completed: request.body.completed,
-      userId: loggedInUser
+      userId: request.user.id
     });
     response.redirect("/todos");
   } catch (error) {
