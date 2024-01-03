@@ -3,6 +3,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
+    await queryInterface.addColumn("Users", "userId", {
+      type: Sequelize.DataTypes.INTEGER,
+    });
+
+    await queryInterface.addConstraint("Users", {
+      fields: ["userId"],
+      type: "foreign key",
+      references: {
+        table: "Users",
+        field: "id",
+      },
+    });
     /**
      * Add altering commands here.
      *
@@ -12,6 +24,7 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
+    await queryInterface.removeColumn("Users", "userId");
     /**
      * Add reverting commands here.
      *
