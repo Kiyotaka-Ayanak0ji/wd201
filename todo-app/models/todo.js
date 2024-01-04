@@ -15,16 +15,16 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static addTodo({ title, dueDate , userID}) {
-      return this.create({ title: title, dueDate: dueDate, completed: false ,userID});
+      return this.create({ title: title, dueDate: dueDate, completed: false ,userID: userID});
     }
 
     static getCompletedTodos(userID) {
       return this.findAll({
         where: {
           completed: true,
-          userID
         },
         order: [["id", "ASC"]],
+        userID
       });
     }
 
@@ -34,10 +34,10 @@ module.exports = (sequelize, DataTypes) => {
           dueDate: {
             [Op.lt]: new Date().toISOString().split("T")[0],
           },
+          completed: false,
         },
         order: [["id", "ASC"]],
-        completed: false,
-        userID: userID
+        userID
       });
     }
 
@@ -45,10 +45,10 @@ module.exports = (sequelize, DataTypes) => {
       return this.findAll({
         where: {
           dueDate: new Date().toISOString().split("T")[0],
+          completed: false,
         },
         order: [["id", "ASC"]],
-        completed: false,
-        userID: userID
+        userID
       });
     }
 
@@ -59,23 +59,23 @@ module.exports = (sequelize, DataTypes) => {
           dueDate: {
             [Op.gt]: tom,
           },
+          completed: false,
         },
         order: [["id", "ASC"]],
-        completed: false,
-        userID: userID
+        userID
       });
     }
 
     setCompletionStatus(stat) {
-      return this.update({ completed: stat });
+      return this.update({ completed: !stat });
     }
 
     static async remove(id,userID) {
       return this.destroy({
         where: {
           id,
-          userID
         },
+        userID: userID
       });
     }
   }

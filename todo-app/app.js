@@ -144,7 +144,10 @@ app.get(
   async (request, response) => {
   try{
       const uId = request.user.id;
-      const [Overdue,DueToday,dueLater,Completed] = await Promise.all([Todo.getOverdues(uId),Todo.getDuetoday(uId),Todo.getDueLater(uId),Todo.getCompletedTodos(uId)])
+      const Overdue = await Todo.getOverdues(uId);
+      const DueToday = await Todo.getDuetoday(uId);
+      const dueLater = await Todo.getDueLater(uId);
+      const Completed = await Todo.getCompletedTodos(uId);
       if (request.accepts("html")) {
         response.render("todos", {
           title: "Todo Application",
@@ -201,7 +204,7 @@ app.put("/todos/:id",connectEnsureLogin.ensureLoggedIn(), async (request, respon
   console.log("We have to update a todo with ID", request.params.id);
   const todo = await Todo.findByPk(request.params.id);
   try {
-    const updatedTodo = await todo.setCompletionStatus(!todo.completed);
+    const updatedTodo = await todo.setCompletionStatus(todo.completed);
     return response.json(updatedTodo);
   } catch (error) {
     console.log(error);
@@ -226,7 +229,7 @@ app.delete("/todos/:id",connectEnsureLogin.ensureLoggedIn(), async (request, res
   const loggedInUser = request.user.id;
   try {
     await Todo.remove(request.params.id,loggedInUser);
-    return response.json({ success: "true" });
+    return response.json({success: true});
   } catch (error) {
     console.error(error);
     return response.status(442).json(error);
