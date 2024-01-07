@@ -186,7 +186,7 @@ app.post("/todos",connectEnsureLogin.ensureLoggedIn(),async (request, response) 
   console.log(request.user);
   //Todo
   try {
-    const todo = await Todo.addTodo({
+    await Todo.addTodo({
       title: request.body.title,
       dueDate: request.body.dueDate,
       completed: request.body.completed,

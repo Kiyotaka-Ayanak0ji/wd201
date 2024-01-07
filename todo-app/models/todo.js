@@ -15,16 +15,16 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static addTodo({ title, dueDate , userID}) {
-      return this.create({ title: title, dueDate: dueDate, completed: false ,userID: userID});
+      return this.create({ title: title, dueDate: dueDate, completed: false ,userID});
     }
 
     static getCompletedTodos(userID) {
       return this.findAll({
         where: {
           completed: true,
+          userID
         },
         order: [["id", "ASC"]],
-        userID
       });
     }
 
