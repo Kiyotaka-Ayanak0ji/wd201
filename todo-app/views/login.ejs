@@ -12,10 +12,10 @@
         <link href = './css/styles.css' rel="stylesheet">
     </head>
     <body>
-        <%- include('header.ejs') %>
         <section>
             <div class="grid grid-cols-6">
                 <div class="col-start-3 col-span-2" class = "Todo-list">
+                    <%- include('header.ejs') %>
                     <section>
                     <h5 class = "py-4">Sign In</h5>
                     <form action="/session" method="post">
