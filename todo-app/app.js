@@ -97,12 +97,12 @@ passport.deserializeUser((id, done) => {
 });
 
 app.post("/users", async (request, response) => {
-  if(request.body.email.length == 0){
+  if(request.body.email.length === 0){
     request.flash("error","Email can't be empty!");
     return response.redirect("/signup");
   }
 
-  if (request.body.firstName.length == 0) {
+  if (request.body.firstName.length === 0) {
     request.flash("error", "First name can't be empty!");
     return response.redirect("/signup");
   }
@@ -147,6 +147,17 @@ app.get("/signout", (request, response) => {
     }
     response.redirect("/");
   });
+});
+
+app.get("/", (req, res) => {
+  if (req.isAuthenticated()) {
+    return res.redirect("/todos");
+  }
+  if (req.accepts("html")) {
+    return res.render("index", {
+      csrfToken: req.csrfToken(),
+    });
+  }
 });
 
 app.post(

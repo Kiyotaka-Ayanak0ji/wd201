@@ -12,33 +12,36 @@
         <link href = './css/styles.css' rel="stylesheet">
     </head>
     <body>
-        <div class="grid grid-cols-6">
-            <div class="col-start-3 col-span-2" class = "Todo-list">
-                <%- include('header.ejs') %>
-                <h5 class = "py-4">Sign In</h5>
-                <form action="/session" method="post">
-                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                    
-                    <div class="py-3">
-                        <label for="email">Email: </label>
-                        <input type="email" name="email" class="border text-gray-900 p-2 border-grey-300 rounded p-2 w-full">
-                    </div>
-                    
-                    <div class="py-3">
-                        <label for="password">Password: </label>
-                        <input type="password" name="password" class="border text-gray-900 p-2 border-grey-300 rounded p-2 w-full">
-                    </div>
-                    
-                    <div class="py-3">
-                        <button type="submit" class="bg-green-400 hover:bg-green-600 px-5 py-2 rounded font-medium mr-2 mb">Sign In</button>
-                    </div>
-                </form>
-                <% if(messages && messages.error && messages.error.length > 0)  { %>
-                    <% for(var i=0; i<messages.error.length; i++) { %>
-                            <li> <%= messages.error[i] %></li>
+        <%- include('header.ejs') %>
+        <section>
+            <div class="grid grid-cols-6">
+                <div class="col-start-3 col-span-2" class = "Todo-list">
+                    <section>
+                    <h5 class = "py-4">Sign In</h5>
+                    <form action="/session" method="post">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        
+                        <div class="py-3">
+                            <label for="email">Email: </label>
+                            <input type="email" name="email" class="border text-gray-900 p-2 border-grey-300 rounded p-2 w-full">
+                        </div>
+                        
+                        <div class="py-3">
+                            <label for="password">Password: </label>
+                            <input type="password" name="password" class="border text-gray-900 p-2 border-grey-300 rounded p-2 w-full">
+                        </div>
+                        
+                        <div class="py-3">
+                            <button type="submit" class="bg-green-400 hover:bg-green-600 px-5 py-2 rounded font-medium mr-2 mb">Sign In</button>
+                        </div>
+                    </form>
+                    <% if(messages && messages.error && messages.error.length > 0)  { %>
+                        <% for(var i=0; i<messages.error.length; i++) { %>
+                                <li class="bg-red-200 mx-auto my-3 list-none rounded px-3 py-1.5"> <%= messages.error[i] %></li>
+                        <% } %>
                     <% } %>
-                <% } %>
+                </div>
             </div>
-        </div>
+        </section>
     </body>
 </html>

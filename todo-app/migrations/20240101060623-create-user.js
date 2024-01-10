@@ -14,7 +14,6 @@ module.exports = {
         allowNull: false,
         validate: {
           notNull: true,
-          len: [3,7],
         }
       },
       lastName: {
@@ -26,8 +25,6 @@ module.exports = {
         unique: true,
         validate:{
           notNull: true,
-          contains: "@",
-          contains: ".com",
         }
       },
       password: {
