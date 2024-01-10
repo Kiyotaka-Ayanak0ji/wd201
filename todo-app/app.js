@@ -5,7 +5,9 @@ var cookieParser = require("cookie-parser");
 const { Todo, User } = require("./models");
 const bodyParser = require("body-parser");
 const path = require("path");
+app.set("views", path.join(__dirname, "views"));
 const { request } = require("http");
+const flash = require("connect-flash");
 
 const passport = require("passport");
 const connectEnsureLogin = require("connect-ensure-login");
@@ -15,25 +17,39 @@ const bcrypt = require("bcrypt");
 
 const saltRounds = 10;
 
-//Set view Engine as EJS
-app.set("view engine", "ejs");
-
-app.use(express.static(path.join(__dirname, "public")));
-app.use(bodyParser.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser("shhh! Some Secret String"));
-app.use(csrf("this_should_be_32_character_long", ["POST", "PUT", "DELETE"]));
-
 app.use(
   session({
     secret: "my-super-secret-key-21728172615261562",
     cookie: {
       maxAge: 24 * 60 * 60 * 1000,
     },
-    resave: true,
-    saveUninitialized: true,
+    resave: false,
+    saveUninitialized: false,
   }),
 );
+
+//Set view Engine as EJS
+app.set("view engine", "ejs");
+
+app.use(express.static(path.join(__dirname, "public")));
+app.use(flash());
+app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser("shhh! Some Secret String"));
+app.use(csrf("this_should_be_32_character_long", ["POST", "PUT", "DELETE"]));
+
+app.use(function(request, response, next) {
+  response.locals.messages = request.flash();
+  next();
+});
+
+// app.get("/", (request, response) => {
+//   if (request.isAuthenticated()) {
+//     return response.redirect("/todos");
+//   }
+//   response.render("index");
+// });
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -55,11 +71,11 @@ passport.use(
           if (result) {
             return done(null, user);
           } else {
-            return done("Invalid Password !");
+            return done(null,false,{message:"Invalid Password !"});
           }
         })
         .catch((error) => {
-          return error;
+          return done(error);
         });
     },
   ),
@@ -81,6 +97,20 @@ passport.deserializeUser((id, done) => {
 });
 
 app.post("/users", async (request, response) => {
+  if(request.body.email.length == 0){
+    request.flash("error","Email can't be empty!");
+    return response.redirect("/signup");
+  }
+
+  if (request.body.firstName.length == 0) {
+    request.flash("error", "First name can't be empty!");
+    return response.redirect("/signup");
+  }
+
+  if (request.body.password.length < 1) {
+    request.flash("error", "Password must be at least 5 characters long and at most 7 characters long !");
+    return response.redirect("/signup");
+  }
   const hashedPwd = await bcrypt.hash(request.body.password, saltRounds);
   console.log(hashedPwd);
 
@@ -101,6 +131,7 @@ app.post("/users", async (request, response) => {
     });
   } catch (error) {
     console.log(error);
+    request.flash("error","User Creation Failed !");
   }
 });
 
@@ -126,8 +157,9 @@ app.post(
   }),
   (request, response) => {
     console.log(request.user);
+    request.flash("error");
     response.redirect("/todos");
-  },
+  }
 );
 
 app.get("/signup", (request, response) => {

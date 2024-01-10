@@ -11,6 +11,11 @@ module.exports = {
       },
       firstName: {
         type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+          notNull: true,
+          len: [3,7],
+        }
       },
       lastName: {
         type: Sequelize.STRING,
@@ -19,6 +24,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
+        validate:{
+          notNull: true,
+          contains: "@",
+          contains: ".com",
+        }
       },
       password: {
         type: Sequelize.STRING,

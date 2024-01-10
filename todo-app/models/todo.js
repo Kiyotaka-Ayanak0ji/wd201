@@ -14,13 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
-    static addTodo({ title, dueDate, userID }) {
-      return this.create({
-        title: title,
-        dueDate: dueDate,
-        completed: false,
-        userID,
-      });
+    static addTodo({ title, dueDate , userID}) {
+      return this.create({ title: title, dueDate: dueDate, completed: false ,userID});
     }
 
     static getCompletedTodos(userID) {
@@ -29,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
           completed: true,
         },
         order: [["id", "ASC"]],
-        userID,
+        userID
       });
     }
 
@@ -42,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
           completed: false,
         },
         order: [["id", "ASC"]],
-        userID,
+        userID
       });
     }
 
@@ -53,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
           completed: false,
         },
         order: [["id", "ASC"]],
-        userID,
+        userID
       });
     }
 
@@ -67,7 +62,7 @@ module.exports = (sequelize, DataTypes) => {
           completed: false,
         },
         order: [["id", "ASC"]],
-        userID,
+        userID
       });
     }
 
@@ -75,12 +70,12 @@ module.exports = (sequelize, DataTypes) => {
       return this.update({ completed: !stat });
     }
 
-    static async remove(id, userID) {
+    static async remove(id,userID) {
       return this.destroy({
         where: {
           id,
         },
-        userID: userID,
+        userID: userID
       });
     }
   }
