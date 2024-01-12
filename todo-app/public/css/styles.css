@@ -24,3 +24,8 @@ body {
 #Add:hover {
   opacity: 1;
 }
+
+.btn{
+  text-decoration: none;
+  border: purple;
+}

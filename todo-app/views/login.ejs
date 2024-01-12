@@ -35,11 +35,7 @@
                             <button type="submit" class="bg-green-400 hover:bg-green-600 px-5 py-2 rounded font-medium mr-2 mb">Sign In</button>
                         </div>
                     </form>
-                    <% if(messages && messages.error && messages.error.length > 0)  { %>
-                        <% for(var i=0; i<messages.error.length; i++) { %>
-                                <li class="bg-red-200 mx-auto my-3 list-none rounded px-3 py-1.5"> <%= messages.error[i] %></li>
-                        <% } %>
-                    <% } %>
+                    <%- include('notifications.ejs') %>
                 </div>
             </div>
         </section>

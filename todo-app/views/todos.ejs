@@ -51,7 +51,9 @@
         <div class="grid grid-cols-6">
             <div class="col-start-3 col-span-2" class = "Todo-list">
                 <%- include('header.ejs') %>
-                <a href="/signout">Sign Out</a>
+                <a class="button" href="/signout">
+                    <button class="border border-purple-900 p-1.5">Sign Out</button>
+                </a>
                 <form action="/todos" method="post">
                     <input type="hidden" name="_csrf" value = "<%= csrfToken %>">
                     <div class="flex gap-2 py-4">
@@ -67,10 +69,11 @@
                     </div>
                 </form>         
                 <div>
-                    <%- include('todo.ejs', { title: "Overdue", data: Overdue}) %>
-                    <%- include('todo.ejs', { title: "Due Today", data: DueToday}) %>
-                    <%- include('todo.ejs', { title: "Due Later", data: dueLater}) %>
-                    <%- include('todo.ejs', { title: "Completed Items", data: Completed}) %>
+                    <%- include('todo.ejs', { title: "Overdue", data: Overdue, id: count-overdue}) %>
+                    <%- include('todo.ejs', { title: "Due Today", data: DueToday , id: count-due-today}) %>
+                    <%- include('todo.ejs', { title: "Due Later", data: dueLater,id: count-due-later}) %>
+                    <%- include('todo.ejs', { title: "Completed Items", data: Completed, id: count-completed-items}) %>
+                    <%- include('notifications.ejs') %>
                 </div>
             </div>
         </div>
