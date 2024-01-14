@@ -69,10 +69,10 @@
                     </div>
                 </form>         
                 <div>
-                    <%- include('todo.ejs', { title: "Overdue", data: Overdue, id: count-overdue}) %>
-                    <%- include('todo.ejs', { title: "Due Today", data: DueToday , id: count-due-today}) %>
-                    <%- include('todo.ejs', { title: "Due Later", data: dueLater,id: count-due-later}) %>
-                    <%- include('todo.ejs', { title: "Completed Items", data: Completed, id: count-completed-items}) %>
+                    <%- include('todo.ejs', { title: "Overdue", data: Overdue, id: "count-overdue"}) %>
+                    <%- include('todo.ejs', { title: "Due Today", data: DueToday , id: "count-due-today"}) %>
+                    <%- include('todo.ejs', { title: "Due Later", data: dueLater,id: "count-due-later"}) %>
+                    <%- include('todo.ejs', { title: "Completed Items", data: Completed, id: "count-completed-items"}) %>
                     <%- include('notifications.ejs') %>
                 </div>
             </div>
