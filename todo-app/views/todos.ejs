@@ -51,9 +51,9 @@
         <div class="grid grid-cols-6">
             <div class="col-start-3 col-span-2" class = "Todo-list">
                 <%- include('header.ejs') %>
-                <a class="button" href="/signout">
-                    <button class="border border-purple-900 p-1.5">Sign Out</button>
-                </a>
+                <button type="submit" onclick="window.location.href='/signout'" class="border border-purple-900 p-1.5">
+                    Sign Out
+                </button>
                 <form action="/todos" method="post">
                     <input type="hidden" name="_csrf" value = "<%= csrfToken %>">
                     <div class="flex gap-2 py-4">
