@@ -14,15 +14,15 @@ module.exports = {
         allowNull: false,
         validate: {
           notNull: true,
-          len: [5,7]
-        }
+          len: [5, 7],
+        },
       },
       dueDate: {
         type: Sequelize.DATEONLY,
       },
       completed: {
         type: Sequelize.BOOLEAN,
-        defaultValue: false
+        defaultValue: false,
       },
       createdAt: {
         allowNull: false,

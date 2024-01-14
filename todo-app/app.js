@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser("shhh! Some Secret String"));
 app.use(csrf("this_should_be_32_character_long", ["POST", "PUT", "DELETE"]));
 
-app.use(function(request, response, next) {
+app.use(function (request, response, next) {
   response.locals.messages = request.flash();
   next();
 });
@@ -49,7 +49,6 @@ app.use(function(request, response, next) {
 //   }
 //   response.render("index");
 // });
-
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -71,7 +70,7 @@ passport.use(
           if (result) {
             return done(null, user);
           } else {
-            return done(null,false,{message:"Invalid Password !"});
+            return done(null, false, { message: "Invalid Password !" });
           }
         })
         .catch((error) => {
@@ -97,8 +96,8 @@ passport.deserializeUser((id, done) => {
 });
 
 app.post("/users", async (request, response) => {
-  if(request.body.email.length === 0){
-    request.flash("error","Email can't be empty!");
+  if (request.body.email.length === 0) {
+    request.flash("error", "Email can't be empty!");
     return response.redirect("/signup");
   }
 
@@ -108,7 +107,10 @@ app.post("/users", async (request, response) => {
   }
 
   if (request.body.password.length < 1) {
-    request.flash("error", "Password must be at least 5 characters long and at most 7 characters long !");
+    request.flash(
+      "error",
+      "Password must be at least 5 characters long and at most 7 characters long !",
+    );
     return response.redirect("/signup");
   }
   const hashedPwd = await bcrypt.hash(request.body.password, saltRounds);
@@ -131,7 +133,7 @@ app.post("/users", async (request, response) => {
     });
   } catch (error) {
     console.log(error);
-    request.flash("error","User Creation Failed !");
+    request.flash("error", "User Creation Failed !");
   }
 });
 
@@ -170,7 +172,7 @@ app.post(
     console.log(request.user);
     request.flash("error");
     response.redirect("/todos");
-  }
+  },
 );
 
 app.get("/signup", (request, response) => {

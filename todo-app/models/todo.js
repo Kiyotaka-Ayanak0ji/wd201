@@ -14,17 +14,22 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
-    static addTodo({ title, dueDate , userID}) {
-      return this.create({ title: title, dueDate: dueDate, completed: false ,userID});
+    static addTodo({ title, dueDate, userID }) {
+      return this.create({
+        title: title,
+        dueDate: dueDate,
+        completed: false,
+        userID,
+      });
     }
 
     static getCompletedTodos(userID) {
       return this.findAll({
         where: {
           completed: true,
+          userID,
         },
         order: [["id", "ASC"]],
-        userID
       });
     }
 
@@ -35,9 +40,9 @@ module.exports = (sequelize, DataTypes) => {
             [Op.lt]: new Date().toISOString().split("T")[0],
           },
           completed: false,
+          userID,
         },
         order: [["id", "ASC"]],
-        userID
       });
     }
 
@@ -46,9 +51,9 @@ module.exports = (sequelize, DataTypes) => {
         where: {
           dueDate: new Date().toISOString().split("T")[0],
           completed: false,
+          userID,
         },
         order: [["id", "ASC"]],
-        userID
       });
     }
 
@@ -60,9 +65,9 @@ module.exports = (sequelize, DataTypes) => {
             [Op.gt]: tom,
           },
           completed: false,
+          userID,
         },
         order: [["id", "ASC"]],
-        userID
       });
     }
 
@@ -70,12 +75,12 @@ module.exports = (sequelize, DataTypes) => {
       return this.update({ completed: !stat });
     }
 
-    static async remove(id,userID) {
+    static async remove(id, userID) {
       return this.destroy({
         where: {
           id,
+          userID,
         },
-        userID: userID
       });
     }
   }
