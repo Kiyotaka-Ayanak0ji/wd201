@@ -17,15 +17,8 @@ body {
   display: block;
 }
 
-#Add {
-  opacity: 0.6;
-}
-
-#Add:hover {
-  opacity: 1;
-}
-
 button#signout{
   text-decoration: none;
+  font-weight: 500;
   border: purple;
 }
