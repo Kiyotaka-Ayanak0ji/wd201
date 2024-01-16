@@ -193,12 +193,24 @@ app.get(
   "/todos",
   connectEnsureLogin.ensureLoggedIn(),
   async (request, response) => {
-    try {
-      const uId = request.user.id;
-      const Overdue = await Todo.getOverdues(uId);
-      const DueToday = await Todo.getDuetoday(uId);
-      const dueLater = await Todo.getDueLater(uId);
-      const Completed = await Todo.getCompletedTodos(uId);
+    try{
+      const d = new Date().toISOString().substring(0, 10);
+
+      const userId = request.user.id;
+      const todos = await Todo.findAll({ where: { userId: userId } });
+      const overdue = todos.filter((item) => {
+        return item.dueDate < d && item.completed === false;
+      });
+      const duetoday = todos.filter((item) => {
+        return item.dueDate === d && item.completed === false;
+      });
+      const duelater = todos.filter((item) => {
+        return item.dueDate > d && item.completed === false;
+      });
+
+      const completedtodo = todos.filter((item) => {
+        return item.completed;
+      });
       if (request.accepts("html")) {
         response.render("todos", {
           title: "Todo Application",
@@ -216,11 +228,10 @@ app.get(
           Completed,
         });
       }
-    } catch (error) {
-      console.error(error);
-      response.status(500).send("Internal Server Error");
-    }
-  },
+    }catch (error) {
+    console.error(error);
+    response.status(500).send("Internal Server Error");
+  }
 );
 
 app.get(
