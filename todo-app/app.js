@@ -232,7 +232,7 @@ app.get(
     console.error(error);
     response.status(500).send("Internal Server Error");
   }
-);
+});
 
 app.get(
   "/todos",
