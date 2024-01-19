@@ -194,21 +194,21 @@ app.get(
   connectEnsureLogin.ensureLoggedIn(),
   async (request, response) => {
     try{
-      const d = new Date().toISOString().substring(0, 10);
+      const d = new Date().toISOString().split("T")[0];
 
-      const userId = request.user.id;
-      const todos = await Todo.findAll({ where: { userId: userId } });
-      const overdue = todos.filter((item) => {
+      const loggedInUser = request.user.id;
+      const todos = await Todo.findAll({ where: { userId: loggedInUser } });
+      const Overdue = todos.filter((item) => {
         return item.dueDate < d && item.completed === false;
       });
-      const duetoday = todos.filter((item) => {
+      const DueToday = todos.filter((item) => {
         return item.dueDate === d && item.completed === false;
       });
-      const duelater = todos.filter((item) => {
+      const dueLater = todos.filter((item) => {
         return item.dueDate > d && item.completed === false;
       });
 
-      const completedtodo = todos.filter((item) => {
+      const Completed = todos.filter((item) => {
         return item.completed;
       });
       if (request.accepts("html")) {
@@ -239,7 +239,11 @@ app.get(
   connectEnsureLogin.ensureLoggedIn(),
   async (request, response) => {
     try {
-      const todos = await Todo.findAll();
+      const todos = await Todo.findAll({
+        where:{
+          userId:request.user.id
+        }
+      });
       return response.send(todos);
     } catch (error) {
       console.error(error);

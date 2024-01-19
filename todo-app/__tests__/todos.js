@@ -96,9 +96,8 @@ describe("Todo Application", function () {
       .get("/todos")
       .set("Accept", "application/json");
     const parsedGroupedResponse = JSON.parse(groupedTodosResponse.text);
-    const dueTodayCount = parsedGroupedResponse.DueToday.length;
-    const latestTodo = parsedGroupedResponse.DueToday[dueTodayCount - 1];
-
+    const latestTodo = parsedGroupedResponse.DueToday[parsedGroupedResponse.DueToday.length - 1];
+    
     res = await agent.get("/todos");
     csrfToken = extractCsrfToken(res);
 
@@ -106,11 +105,10 @@ describe("Todo Application", function () {
       .put(`/todos/${latestTodo.id}`)
       .send({
         _csrf: csrfToken,
+        completed: false
       });
     const parsedUpdateResponse = JSON.parse(markCompletedResponse.text);
-    expect(parsedUpdateResponse.completed).toBe(
-      markCompletedResponse.body.completed,
-    );
+    expect(parsedUpdateResponse.completed).toBe(!latestTodo.completed);
   });
 
   // test("Fetches all todos in the database using /todos endpoint", async () => {
