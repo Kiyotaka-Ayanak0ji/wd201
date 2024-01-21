@@ -14,50 +14,50 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
-    static addTodo({ title, dueDate, userID }) {
+    static addTodo({ title, dueDate, userId }) {
       return this.create({
         title: title,
         dueDate: dueDate,
         completed: false,
-        userID,
+        userId,
       });
     }
 
-    static getCompletedTodos(userID) {
+    static getCompletedTodos(userId) {
       return this.findAll({
         where: {
           completed: true,
-          userID,
+          userId,
         },
         order: [["id", "ASC"]],
       });
     }
 
-    static getOverdues(userID) {
+    static getOverdues(userId) {
       return this.findAll({
         where: {
           dueDate: {
             [Op.lt]: new Date().toISOString().split("T")[0],
           },
           completed: false,
-          userID,
+          userId,
         },
         order: [["id", "ASC"]],
       });
     }
 
-    static getDuetoday(userID) {
+    static getDuetoday(userId) {
       return this.findAll({
         where: {
           dueDate: new Date().toISOString().split("T")[0],
           completed: false,
-          userID,
+          userId,
         },
         order: [["id", "ASC"]],
       });
     }
 
-    static getDueLater(userID) {
+    static getDueLater(userId) {
       let tom = new Date().setDate(new Date().getDate() + 1);
       return this.findAll({
         where: {
@@ -65,7 +65,7 @@ module.exports = (sequelize, DataTypes) => {
             [Op.gt]: tom,
           },
           completed: false,
-          userID,
+          userId,
         },
         order: [["id", "ASC"]],
       });
@@ -75,11 +75,11 @@ module.exports = (sequelize, DataTypes) => {
       return this.update({ completed: !stat });
     }
 
-    static async remove(id, userID) {
+    static async remove(id, userId) {
       return this.destroy({
         where: {
           id,
-          userID,
+          userId,
         },
       });
     }
